@@ -4,6 +4,8 @@ import Layout from "./components/Layout";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./components/home/Home";
+import Header from "./header/Header";
+import Trailer from "./trailer/Trailer";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -21,14 +23,17 @@ function App() {
     getMovies()
   }, [])
   
-  return <div className="App">
+  return (
+  <div className="App">
+    <Header />
     <Routes>
       <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home movies={movies} />}></Route>
+      <Route path="/Trailer/:ytTrailerId" element={<Trailer />}></Route>
       </Route>
       
     </Routes>
-  </div>;
+  </div>);
 }
 
 export default App;
