@@ -8,6 +8,12 @@ import Button from 'react-bootstrap/Button';
 import "./Hero.css";
 
 const Hero = ({ movies }) => {
+    const navigate = useNavigate();
+
+    function reviews(movieId)
+    {
+        navigate(`/Reviews/${movieId}`);
+    }
   return (
     <div className="movie-carousel-container">
       <Carousel>
@@ -41,7 +47,7 @@ const Hero = ({ movies }) => {
                       <div className="movie-review-button-container">
                         <Button
                           variant="info"
-                          onClick={() => {}}
+                          onClick={() => reviews(movie.imdbId)}
                         >
                           Reviews
                         </Button>
